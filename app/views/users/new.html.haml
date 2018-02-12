@@ -1,0 +1,22 @@
+%div.signup-box
+  %p.center= flash[:notice] if flash[:notice]
+  %h1.center.create Create Your Account
+  %h3.center.create Enter your new account information below.
+  <br>
+  %div{:class => 'login'}
+    = form_tag users_path do
+    
+      = label :user, :username, 'Username'
+      %br.mobile-nav
+      = text_field :user, 'username', class: 'form-control username', value: flash[:username]
+      %br
+      = label :user, :email, 'E-mail Address'
+      %br.mobile-nav
+      = text_field :user, 'email', class: 'form-control', value: flash[:email]
+      %br
+      = label :user, :password, 'Password'
+      %br.mobile-nav
+      = password_field :user, 'password', class: 'form-control password'
+      %br
+      = submit_tag 'Submit', class: 'btn btn-primary', id: "login-btn"
+      

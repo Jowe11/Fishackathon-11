@@ -1,0 +1,23 @@
+%html
+  %body
+    %div.hosting-box
+      %p= flash[:notice] if flash[:notice]
+      %h1.center Edit Profile Information
+      <br>
+      %h4.center Edit any of the fields below.
+  
+      = form_tag user_path(@user), :method => :patch do
+        <br>
+        %h4 Personal Information
+        = label :user, :email, 'E-mail Address'
+        = @user.email
+        <br>
+        = label :user, :username, 'First Name'
+        = text_field :user, 'first_name', :value => @user.first_name
+        <br>
+        = submit_tag 'Save Changes'
+   
+      <br>
+      = button_to 'Delete Profile', user_path(@user), :method => :delete, :confirm => "Are you sure?"
+      <br>
+      = link_to "Back to Main Page", root_path

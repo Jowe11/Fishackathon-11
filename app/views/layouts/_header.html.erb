@@ -1,0 +1,18 @@
+<!--New Nav-->
+
+<nav class="large">
+	<a id="topbar-logo" href="/">
+    <%= image_tag(asset_path('fishackathon.jpg'), width: "110") %>
+  </a>
+	<ul>
+		<li><%= link_to "About", about_path%></li>
+		<li><%= link_to "Report", new_report_path%></li>
+		<br class="mobile-nav">
+		<% if logged_in? %>
+			<li><%= link_to "Edit Profile", edit_user_path%></li>
+		<% else %>
+			<li><%= link_to "Sign Up", new_user_path%></li>
+    		<li><%= link_to "Login", login_path%></li>
+		<% end %>
+	</ul>
+</nav>
